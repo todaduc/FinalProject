@@ -46,6 +46,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
-    compile project ( ':javaJokeLib'), project (':jokedisplaylib')
+    compile project (':jokedisplaylib')
 
 }
