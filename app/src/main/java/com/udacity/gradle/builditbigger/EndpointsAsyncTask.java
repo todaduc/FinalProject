@@ -3,6 +3,8 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -21,12 +23,12 @@ public  class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private MyApi myApiService = null;
     private Context context;
     private TaskListener mListener;
+    private ProgressBar spinner;
 
-
-    public EndpointsAsyncTask(Context context){
+    public EndpointsAsyncTask(Context context, ProgressBar spinner){
         this.context = context;
+        this.spinner = spinner;
     }
-
 
     public EndpointsAsyncTask setListener(TaskListener listener) {
         this.mListener = listener;
@@ -34,6 +36,13 @@ public  class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     }
     public static interface TaskListener {
         public void onComplete(String result);
+    }
+
+    @Override
+    protected void onPreExecute() {
+        if (spinner != null){
+            spinner.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -67,6 +76,10 @@ public  class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
+
+        if (spinner != null){
+            spinner.setVisibility(View.VISIBLE);
+        }
 
         if (this.mListener != null)
             this.mListener.onComplete(result);

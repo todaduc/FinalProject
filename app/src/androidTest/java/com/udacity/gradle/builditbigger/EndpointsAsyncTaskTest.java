@@ -32,7 +32,7 @@ public class EndpointsAsyncTaskTest extends InstrumentationTestCase {
     public void testAlbumGetTask() throws InterruptedException {
 
         Context appContext = InstrumentationRegistry.getTargetContext();
-        EndpointsAsyncTask task = new EndpointsAsyncTask(appContext);
+        EndpointsAsyncTask task = new EndpointsAsyncTask(appContext, null);
 
         assertNotNull(task);
 
