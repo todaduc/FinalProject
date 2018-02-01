@@ -20,7 +20,7 @@ allprojects {
         google()
     }
 }
-
+// this task start the server, run the entire tests and stop the server
 task runServerTestStopServer(
         dependsOn: [":backend:appengineStart", ":app:connectedAndroidTest", ":backend:appengineStop"]
 )

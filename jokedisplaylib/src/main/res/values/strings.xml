@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">jokedisplaylib</string>
+    <string name="intent_id">joke</string>
 </resources>
