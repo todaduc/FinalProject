@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * This method initiate and execute the task to retrieve the joke from the backend.
+     * @param view
+     */
     public void tellJoke(View view) {
         new EndpointsAsyncTask(this, spinner).execute();
 

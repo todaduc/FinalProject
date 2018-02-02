@@ -6,11 +6,8 @@ import android.test.InstrumentationTestCase;
 import android.text.TextUtils;
 import java.util.concurrent.CountDownLatch;
 
-/**
- * Created by Themener on 1/25/18.
- */
 
-
+//Class to test the backend task.
 public class EndpointsAsyncTaskTest extends InstrumentationTestCase {
 
     private String mResult = null;
@@ -28,8 +25,11 @@ public class EndpointsAsyncTaskTest extends InstrumentationTestCase {
         signal.countDown();
     }
 
-
-    public void testAlbumGetTask() throws InterruptedException {
+    /**
+     * this method test the whether the result coming from the server is null or an empty string.
+     * @throws InterruptedException
+     */
+    public void testEndpointTask() throws InterruptedException {
 
         Context appContext = InstrumentationRegistry.getTargetContext();
         EndpointsAsyncTask task = new EndpointsAsyncTask(appContext, null);

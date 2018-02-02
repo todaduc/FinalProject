@@ -16,7 +16,7 @@ import com.udacity.gradle.builditbigger.backend.myApi.MyApi;
 import java.io.IOException;
 
 /**
- * Created by Themener on 1/25/18.
+ * Async task in charge of connecting with the backend server and retrieving the available server resources.
  */
 
 public  class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
@@ -30,10 +30,17 @@ public  class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
         this.spinner = spinner;
     }
 
+    /**
+     * Sets the task listener.
+     * @param listener
+     * @return
+     */
     public EndpointsAsyncTask setListener(TaskListener listener) {
         this.mListener = listener;
         return this;
     }
+
+    // Listener to indicate when the task has complete his job.
     public static interface TaskListener {
         public void onComplete(String result);
     }
