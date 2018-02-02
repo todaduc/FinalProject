@@ -41,8 +41,8 @@ public  class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     }
 
     // Listener to indicate when the task has complete his job.
-    public static interface TaskListener {
-        public void onComplete(String result);
+    public interface TaskListener {
+        void onComplete(String result);
     }
 
     @Override
